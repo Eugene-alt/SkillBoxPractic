@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\bin\Debug\practic2ConsoleApp.exe.config
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\bin\Debug\practic2ConsoleApp.exe
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\bin\Debug\practic2ConsoleApp.pdb
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\obj\Debug\practic2ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\obj\Debug\practic2ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\obj\Debug\practic2ConsoleApp.exe
+C:\Users\User\source\repos\practic2ConsoleApp\practic2ConsoleApp\obj\Debug\practic2ConsoleApp.pdb
