@@ -74,7 +74,10 @@ for(int i = 1; i <= cartCount; i++)
         case "T":
             sum += 10;
             break;
-        default: Console.WriteLine("Ты втираешь мне какую-то дичь"); break;
+        default: 
+            Console.WriteLine("Ты втираешь мне какую-то дичь");
+            i--;
+            break;
     }
 
 }
