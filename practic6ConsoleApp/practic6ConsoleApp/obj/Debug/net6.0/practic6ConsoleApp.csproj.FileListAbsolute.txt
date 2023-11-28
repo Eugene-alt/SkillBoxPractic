@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.AssemblyInfo.cs
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\bin\Debug\net6.0\practic6ConsoleApp.exe
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\bin\Debug\net6.0\practic6ConsoleApp.deps.json
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\bin\Debug\net6.0\practic6ConsoleApp.runtimeconfig.json
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\bin\Debug\net6.0\practic6ConsoleApp.dll
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\bin\Debug\net6.0\practic6ConsoleApp.pdb
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.dll
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\refint\practic6ConsoleApp.dll
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.pdb
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\practic6ConsoleApp.genruntimeconfig.cache
+C:\Users\User\source\repos\practic6ConsoleApp\practic6ConsoleApp\obj\Debug\net6.0\ref\practic6ConsoleApp.dll
