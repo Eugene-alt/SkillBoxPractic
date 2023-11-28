@@ -27,11 +27,8 @@
                     while (!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
-                        if (i % 7 == 0)
-                        {
-                            maxId++;
-                            
-                        }
+                        maxId++;
+
                         i += 1;
                     }
 
