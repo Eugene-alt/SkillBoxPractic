@@ -14,15 +14,15 @@
 
         if(File.Exists(filePath))
         {
+            int maxId = 0;
             Console.WriteLine("запись или чтение?w/r");
             if (Console.ReadKey(true).Key == ConsoleKey.W)
             {
                 string[] userData = new string[6];
-                string[] data = new string[7];
                 using (StreamReader sr = new StreamReader(filePath, true))
                 {
                     int i = 0;
-                    int maxId = 0;
+                    
 
                     while (!sr.EndOfStream)
                     {
@@ -34,7 +34,6 @@
                         }
                         i += 1;
                     }
-                    data[0] = (maxId + 1).ToString();
 
 
                 }
@@ -42,15 +41,34 @@
                 {
                     do
                     {
-                        Console.WriteLine("Введите данные следующим образом: ДАТА ВРЕМЯ#Ф И О#ВОЗРАСТ#РОСТ#ДАТАРОЖДЕНИЯ#МЕСТОРОЖДЕНИЯ");
-                        userData = Console.ReadLine().Split('#');
-                        userData.CopyTo(data, 1);
+                        string fio = "NoName";                                                                                                     // Объяввление переменных
+                        int age = 0;                                                                                                               //
+                        int height = 0;                                                                                                            //
+                        string[] dataBuff = new string[3];                                                                                         //
+                        DateTime bornDay = DateTime.Now;                                                                                           //
+                        string bornPlace = "Street";                                                                                               //
 
-                        foreach (string str in data) // Записываем данные по своим полям
-                        {
-                            sw.WriteLine($"{str}\t");
-                        }
-                        data[0] =  (Convert.ToInt32(data[0])+1).ToString();
+
+                        Console.WriteLine("Введите данные");                                                                                        // Ввод данных
+                        DateTime dateTime = DateTime.Now;                                                                                           //
+                        Console.Write("Введите ФИО:");                                                                                              //
+                        fio = Console.ReadLine();                                                                                                   //
+                        Console.Write("Введите ВОЗРАСТ:");                                                                                          //
+                        age = Convert.ToInt32(Console.ReadLine());                                                                                  //
+                        Console.Write("Введите РОСТ:");                                                                                             //
+                        height = Convert.ToInt32(Console.ReadLine());                                                                               //
+                        Console.Write("Введите ДАТУ РОЖДЕНИЯ в формате DD.MM.YYYY:");                                                               //
+                        dataBuff = Console.ReadLine().Split(".");                                                                                   //
+                        if(dataBuff.Length == 3)                                                                                                    //
+                        {                                                                                                                           //
+                            bornDay = new DateTime(Convert.ToInt32(dataBuff[2]), Convert.ToInt32(dataBuff[1]), Convert.ToInt32(dataBuff[0]));       //
+                        }                                                                                                                           //
+                        Console.Write("Введите МЕСТО РОЖДЕНИЯ:");                                                                                   //
+                        bornPlace = Console.ReadLine();                                                                                             //
+
+                        sw.WriteLine($"{maxId}\t{dateTime}\t{fio}\t{age}\t{height}\t{bornDay}\t{bornPlace}");                                       // Запись данных в файл
+
+                        maxId += 1;
 
                         Console.WriteLine("Продолжить запись? y/n");
                     } while (Console.ReadKey(true).Key == ConsoleKey.Y) ;
