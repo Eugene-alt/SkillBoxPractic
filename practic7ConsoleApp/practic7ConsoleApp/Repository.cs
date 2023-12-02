@@ -18,6 +18,7 @@ namespace practic7ConsoleApp
         #region Методы
 
 
+        #region Приватные методы
         #region Resize
         /// <summary>
         /// Расширение массива workers
@@ -33,12 +34,38 @@ namespace practic7ConsoleApp
         #endregion 
 
 
+        #region WorkersSave
+        /// <summary>
+        /// Записывает в файл всех работников
+        /// </summary>
+        private void WorkersSave(bool isDelet = false)
+        {
+            File.Delete(path);
+            File.Create(path).Close();
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                if (isDelet)
+                {
+                    index -= 1;
+                }
+                for (int i = 0; i < index; i++)
+                {
+                    Worker worker = workers[i];
+                    sw.WriteLine($"{i}\t{worker.Data}\t{worker.FIO}\t{worker.Age}\t{worker.Height}\t{worker.DataBirthday}\t{worker.PlaceBirthday}");
+                }
+            }
+        }
+        #endregion
+
+
         #region Load
         /// <summary>
         /// Подгрузка файла. Заполнение массива работников и определение index
         /// </summary>
         private void Load()
         {
+            index = 0;
             if(File.Exists(path))
             {
                 using(StreamReader sr = new StreamReader(path))
@@ -62,15 +89,40 @@ namespace practic7ConsoleApp
         #endregion
 
 
+        #region AddWorkerToWorkers
+        /// <summary>
+        /// Добавление работника в массив работников workers
+        /// </summary>
+        /// <param name="array">Строковый массив необходимых данных</param>
+        private void AddWorkerToWorkers(string[] array)
+        {
+            Resize((index >= workers.Length) ? true : false);
+            this.workers[index] = new Worker(array);
+        }
+
+        /// <summary>
+        /// Добавление работника в массив работников workers
+        /// </summary>
+        /// <param name="array">Строковый массив необходимых данных</param>
+        private void AddWorkerToWorkers(Worker worker)
+        {
+            Resize((index >= workers.Length) ? true : false);
+            this.workers[index] = worker;
+        }
+        #endregion
+        #endregion
+
+
+        #region Публичные методы
         #region GetWorkerById
         /// <summary>
         /// Возвращает работника по индексу
         /// </summary>
         /// <param name="id">Индекс работника, нужного нам</param>
         /// <returns></returns>
-        public Worker GetWorkerById(int id)
+        public Worker GetWorkerById(int workerId)
         {
-            return workers[id];
+            return workers[workerId];
         }
         #endregion
 
@@ -82,6 +134,7 @@ namespace practic7ConsoleApp
         /// <returns></returns>
         public Worker[] GetAllWorkers()
         {
+            Load();
             return workers;
         }
         #endregion
@@ -112,29 +165,6 @@ namespace practic7ConsoleApp
                 }
             }
             return result;
-        }
-        #endregion
-
-
-        #region AddWorkerToWorkers
-        /// <summary>
-        /// Добавление работника в массив работников workers
-        /// </summary>
-        /// <param name="array">Строковый массив необходимых данных</param>
-        private void AddWorkerToWorkers(string[] array)
-        {
-            Resize((index >= workers.Length) ? true : false);
-            this.workers[index] = new Worker(array);
-        }
-
-        /// <summary>
-        /// Добавление работника в массив работников workers
-        /// </summary>
-        /// <param name="array">Строковый массив необходимых данных</param>
-        private void AddWorkerToWorkers(Worker worker)
-        {
-            Resize((index >= workers.Length) ? true : false);
-            this.workers[index] = worker;
         }
         #endregion
 
@@ -218,30 +248,6 @@ namespace practic7ConsoleApp
             }
         }
         #endregion
-
-
-        #region WorkersSave
-        /// <summary>
-        /// Записывает в файл всех работников
-        /// </summary>
-        private void WorkersSave(bool isDelet = false)
-        { 
-            File.Delete(path);
-            File.Create(path).Close();
-
-            using(StreamWriter sw = new StreamWriter(path))
-            {
-                if (isDelet)
-                {
-                    index -= 1;
-                }
-                for(int i = 0; i < index; i++)
-                {
-                    Worker worker = workers[i];
-                    sw.WriteLine($"{i}\t{worker.Data}\t{worker.FIO}\t{worker.Age}\t{worker.Height}\t{worker.DataBirthday}\t{worker.PlaceBirthday}");
-                }
-            }
-        }
         #endregion
 
 
