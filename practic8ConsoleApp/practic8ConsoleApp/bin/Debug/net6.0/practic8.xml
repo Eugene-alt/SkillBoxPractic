@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Persons>
+  <Person name="1">
+    <Adress>
+      <Street>1</Street>
+      <HouseNumber>1</HouseNumber>
+      <FlatNumber>1</FlatNumber>
+    </Adress>
+    <PhonesNumber>
+      <MobilePhone>1</MobilePhone>
+      <FlatPhone>1</FlatPhone>
+    </PhonesNumber>
+  </Person>
+  <Person name="2">
+    <Adress>
+      <Street>2</Street>
+      <HouseNumber>2</HouseNumber>
+      <FlatNumber>2</FlatNumber>
+    </Adress>
+    <PhonesNumber>
+      <MobilePhone>2</MobilePhone>
+      <FlatPhone>2</FlatPhone>
+    </PhonesNumber>
+  </Person>
+  <Person name="3">
+    <Adress>
+      <Street>3</Street>
+      <HouseNumber>3</HouseNumber>
+      <FlatNumber>3</FlatNumber>
+    </Adress>
+    <PhonesNumber>
+      <MobilePhone>3</MobilePhone>
+      <FlatPhone>3</FlatPhone>
+    </PhonesNumber>
+  </Person>
+  <Person name="4">
+    <Adress>
+      <Street>4</Street>
+      <HouseNumber>4</HouseNumber>
+      <FlatNumber>4</FlatNumber>
+    </Adress>
+    <PhonesNumber>
+      <MobilePhone>4</MobilePhone>
+      <FlatPhone>4</FlatPhone>
+    </PhonesNumber>
+  </Person>
+  <Person name="Пануев Евгендий">
+    <Adress>
+      <Street>Смола</Street>
+      <HouseNumber>3</HouseNumber>
+      <FlatNumber>1</FlatNumber>
+    </Adress>
+    <PhonesNumber>
+      <MobilePhone>89169284515</MobilePhone>
+      <FlatPhone>1</FlatPhone>
+    </PhonesNumber>
+  </Person>
+</Persons>
