@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace practic10ConsoleApp_2
 {
-    internal class Consultant
+    internal class Consultant : IChangeData
     {
         // Статический массив клиентов
         protected static List<Client> clients;
@@ -20,7 +20,7 @@ namespace practic10ConsoleApp_2
         #region Методы
 
             #region Методы работы с данными клиентов
-        protected virtual void WorkWithName(int clientId)
+        protected virtual void LookName(int clientId)
         {
             if (clientId < clients.Count)
             {
@@ -28,7 +28,7 @@ namespace practic10ConsoleApp_2
             }
         }
 
-        protected virtual void WorkWithSurname(int clientId)
+        protected virtual void LookSurname(int clientId)
         {
             if (clientId < clients.Count)
             {
@@ -36,7 +36,7 @@ namespace practic10ConsoleApp_2
             }
         }
  
-        protected virtual void WorkWithPatronimic(int clientId)
+        protected virtual void LookPatronimic(int clientId)
         {
             if (clientId < clients.Count)
             {
@@ -44,7 +44,7 @@ namespace practic10ConsoleApp_2
             }
         }
 
-        protected virtual void WorkWithPassport(int clientId)
+        protected virtual void LookPassport(int clientId)
         {
             if (clientId < clients.Count)
             {
@@ -59,25 +59,25 @@ namespace practic10ConsoleApp_2
             }
         }
    
-        protected virtual void WorkWithPhoneNumber(int clientId)
+        protected virtual void LookPhoneNumber(int clientId)
         {
-            string phoneNumber;
-
-            Console.Write("Введите номер телефона, на который хотите изменить данный номер >>> ");
-            phoneNumber = Console.ReadLine();
-
-            if (clientId < clients.Count)
+            if (ReadOrWrite())
             {
-                if (!String.IsNullOrEmpty(phoneNumber))
+                if (clientId < clients.Count)
                 {
-                    clients[clientId].phoneNumber = phoneNumber;
-                }
-                else
-                {
-                    Console.WriteLine("Номер телефона не может быть пустым");
+                    Console.WriteLine(clients[clientId].phoneNumber);
                 }
             }
+            else
+            {
+                ChangePhoneNumber(clientId);
+            }
+        }
 
+        protected virtual void ChangePhoneNumber(int clientId)
+        {
+            newData(clientId, "phoneNumber");
+            clients[clientId].AddChange(DateTime.Now.ToString(), "phoneNumber", "Запись", "Консультант");
         }
             #endregion
 
@@ -116,23 +116,23 @@ namespace practic10ConsoleApp_2
                 {
                     case ConsoleKey.D1:
                         Console.WriteLine("Вы выбрали ИМЯ\n");
-                        WorkWithName(clientId);
+                        LookName(clientId);
                         break;
                     case ConsoleKey.D2:
                         Console.WriteLine("Вы выбрали ФАМИЛИЯ\n");
-                        WorkWithSurname(clientId);
+                        LookSurname(clientId);
                         break;
                     case ConsoleKey.D3:
                         Console.WriteLine("Вы выбрали ОТЧЕСТВО\n");
-                        WorkWithPatronimic(clientId);
+                        LookPatronimic(clientId);
                         break;
                     case ConsoleKey.D4:
                         Console.WriteLine("Вы выбрали ПАСПОРТНЫЕ ДАННЫЕ\n");
-                        WorkWithPassport(clientId);
+                        LookPassport(clientId);
                         break;
                     case ConsoleKey.D5:
                         Console.WriteLine("Вы выбрали НОМЕР ТЕЛЕФОНА\n");
-                        WorkWithPhoneNumber(clientId);
+                        LookPhoneNumber(clientId);
                         break;
                 }
             }
@@ -161,6 +161,63 @@ namespace practic10ConsoleApp_2
                         break;
                     default: break;
                 }
+            }
+        }
+
+        protected void newData(int clientId, string data)
+        {
+            string newData;
+
+            while (true)
+            {
+                Console.Write("Введите новые данные >>> ");
+                newData = Console.ReadLine();
+
+                if (!String.IsNullOrEmpty(newData))
+                {
+                    switch (data.Trim())
+                    {
+                        case "name":
+                            clients[clientId].name = newData;
+                            break;
+                        case "surname":
+                            clients[clientId].surname = newData;
+                            break;
+                        case "patronimic":
+                            clients[clientId].patronimic = newData;
+                            break;
+                        case "passport":
+                            clients[clientId].passport = newData;
+                            break;
+                        case "phoneNumber":
+                            clients[clientId].phoneNumber = newData;
+                            break;
+                    }
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Данные не могут быть пустыми");
+                }
+            }
+
+        }
+
+        protected bool ReadOrWrite()
+        {
+            Console.WriteLine("Что вы хотите сделать с этими данными?\n" +
+                "1 - Просмотреть\n" +
+                "2 - Изменить\n");
+
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D1:
+                    return true;
+                case ConsoleKey.D2:
+                    return false;
+                default:
+                    Console.WriteLine("Буду считать, что ты хочешь просмотреть данные");
+                    return true;
             }
         }
         #endregion

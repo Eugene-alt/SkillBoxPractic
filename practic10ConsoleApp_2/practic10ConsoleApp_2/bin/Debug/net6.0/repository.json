@@ -14,8 +14,15 @@
     "surname": "Panuev",
     "patronimic": "Vasilevich",
     "passport": "2435 534534",
-    "phoneNumber": "8942353246",
-    "changesList": []
+    "phoneNumber": "89325235",
+    "changesList": [
+      {
+        "dateTime": "16.12.2023 23:07:52",
+        "dataType": "phoneNumber",
+        "changeType": "Запись",
+        "worker": "Консультант"
+      }
+    ]
   },
   {
     "id": 2,
@@ -75,8 +82,15 @@
     "surname": "Panuev",
     "patronimic": "Vasilevich",
     "passport": "2435 534534",
-    "phoneNumber": "8942353246",
-    "changesList": []
+    "phoneNumber": "8925253235",
+    "changesList": [
+      {
+        "dateTime": "16.12.2023 23:08:19",
+        "dataType": "phoneNumber",
+        "changeType": "Запись",
+        "worker": "Менеджер"
+      }
+    ]
   },
   {
     "id": 8,
