@@ -1,0 +1,55 @@
+﻿<Window x:Class="practic10WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practic10WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="ListViewClients" VerticalAlignment="Top" Margin="10,10,10,0" SelectionChanged="ListViewClients_SelectionChanged">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}" Width="100"/>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronimic}" Width="100"/>
+                    <GridViewColumn Header="Номер Телефона" DisplayMemberBinding="{Binding PhoneNumber}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Column="1">
+            <StackPanel Grid.Column="1">
+                <Label HorizontalAlignment="Center" Margin="0,5,0,0">Кто ты?</Label>
+                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5">
+                    <StackPanel Grid.Column="1">
+                        <RadioButton Click="RadioButton_Click" x:Name="ConsultantRadioButton" Grid.Column="1" Content="Консультант" HorizontalAlignment="left"  VerticalAlignment="Top"/>
+                        <RadioButton Click="RadioButton_Click" x:Name="ManagerRadioButton" Grid.Column="1" Content="Менеджер" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <Label x:Name="SelectDataLabel" HorizontalAlignment="Center" Margin="0,5,0,0">Выбери поле</Label>
+                <ComboBox x:Name="DataComboBox" Width="200" SelectionChanged="ComboBox_SelectionChanged">
+                    <TextBlock x:Name="NameTextBlock">Имя</TextBlock>
+                    <TextBlock x:Name="SurnameTextBlock">Фамилия</TextBlock>
+                    <TextBlock x:Name="PatronimicTextBlock">Отчество</TextBlock>
+                    <TextBlock x:Name="PassportTextBlock">Паспортные данные</TextBlock>
+                    <TextBlock x:Name="PhoneNumberTextBlock">Номер телефона</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel>
+                <TextBox x:Name="SelectedDataTextBlock" Margin=" 0 20 0 10">Выбранное поле</TextBox>
+                <Button Click="Button_Click">Изменить</Button>
+            </StackPanel>
+
+
+        </StackPanel>
+        
+    </Grid>
+</Window>
