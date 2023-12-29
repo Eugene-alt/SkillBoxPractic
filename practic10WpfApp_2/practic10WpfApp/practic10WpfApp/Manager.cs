@@ -44,6 +44,12 @@ namespace practic10WpfApp
         }
             #endregion
 
+        public override void AddNewClient(string name, string surname, string patronimic, string phone, string passport)
+        {
+            Client client = new Client(name, surname, patronimic, passport, phone);
+            Repository.AddClient(client);
+        }
+
         #endregion
     }
 }

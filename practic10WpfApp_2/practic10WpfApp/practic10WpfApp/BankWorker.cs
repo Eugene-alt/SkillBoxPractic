@@ -53,6 +53,8 @@ namespace practic10WpfApp
 
         public virtual void ChangePhoneNumber(int clientId, string newData) { }
 
+        public virtual void AddNewClient(string name, string surname, string patronimic, string phone, string passport) { }
+
         public BankWorker()
         {
             clients = Repository.clients;

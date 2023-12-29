@@ -30,9 +30,10 @@ namespace practic10WpfApp
         /// Добавляет клиента в массив клиентов
         /// </summary>
         /// <param name="client">Клиент, которого необходимо добавить</param>
-        public void AddClient(Client client)
+        public static void AddClient(Client client)
         {
             clients.Add(client);
+            Serialize();
         }
 
         /// <summary>

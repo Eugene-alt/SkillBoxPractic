@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,8 @@ namespace practic10WpfApp
 
             if(ConsultantRadioButton.IsChecked == true)
             {
-                worker = new Consultant();   
+                worker = new Consultant();
+                NewClientStackPanel.IsEnabled = false;
             }
             else
             {
@@ -114,6 +116,47 @@ namespace practic10WpfApp
                     break;
             }
             ListViewClients.Items.Refresh();
+        }
+
+        private void SortButtonClick(object sender, RoutedEventArgs e)
+        {
+            Client[] tempClients = new Client[Repository.clients.Count];
+            for (int i = 0; i < tempClients.Length; i++)
+            {
+                tempClients[i] = Repository.clients[i];
+            }
+
+            Array.Sort(tempClients, (x, y) => String.Compare(x.Name, y.Name));
+
+            for(int i = 0;i < tempClients.Length;i++)
+            {
+                Repository.clients[i] = tempClients[i];
+                Repository.clients[i].Id = i;
+                Repository.Serialize();
+            }
+            ListViewClients.Items.Refresh();
+        }
+
+        private void AddNewClientButtonClick(object sender, RoutedEventArgs e)
+        {
+            string name = NewClientNameTextBox.Text;
+            string surname = NewClientSurnameTextBox.Text;
+            string patronimic = NewClientPatronimicTextBox.Text;
+            string phone = NewClientPhoneTextBox.Text;
+            string passport = NewClientPassportTextBox.Text;
+
+            if(!String.IsNullOrEmpty(name)&& !String.IsNullOrEmpty(surname) && !String.IsNullOrEmpty(patronimic)
+                && !String.IsNullOrEmpty(phone) && !String.IsNullOrEmpty(passport)) // Если данные не пустые
+            {
+                worker.AddNewClient(name, surname, patronimic, phone, passport);
+                ListViewClients.Items.Refresh(); 
+
+                NewClientNameTextBox.Text = "";
+                NewClientSurnameTextBox.Text = "";
+                NewClientPatronimicTextBox.Text = "";
+                NewClientPhoneTextBox.Text = "";
+                NewClientPassportTextBox.Text = "";
+            }
         }
     }
 }
